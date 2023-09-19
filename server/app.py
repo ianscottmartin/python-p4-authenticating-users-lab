@@ -51,7 +51,9 @@ class ShowArticle(Resource):
 api.add_resource(ClearSession, '/clear')
 api.add_resource(IndexArticle, '/articles')
 api.add_resource(ShowArticle, '/articles/<int:id>')
+
 # make login class
+
 class Login(Resource):
     
    def post(self):
@@ -62,7 +64,7 @@ class Login(Resource):
     session['user_id'] = user.id
 
     return user.to_dict(), 200
-
+# make logout
 class Logout(Resource):
 
     def delete(self):
@@ -70,6 +72,7 @@ class Logout(Resource):
         session['user_id'] = None
         
         return {}, 204
+# check the session
 
 class CheckSession(Resource):
 
